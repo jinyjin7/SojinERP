@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if request.method == 'GET' %}
+        <h2>입고 상품 등록하기</h2>
+        <table>
+            <tbody>
+            {% for product in product_list %}
+                <tr>
+                    <td>{{ product.product_code }}</td>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.product_description }}</td>
+                    <td>{{ product.product_price }}</td>
+                    <td>{{ product.product_sizes }}</td>
+                    <td>{{ product.product_quantity }}</td>
+                    <td>{{ product.product_type }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <h4>아래를 입력해주세요.</h4>
+        {% if error %}
+            <p style="color:red">{{ error }}</p>
+        {% endif %}
+        <form class="form-area" method="post" action="/inbound/">
+            {% csrf_token %}
+            <label for="product_code">상품 코드:</label>
+            <br>
+            <input type="text" id="product_code" name="product_code" value="{{ product_code }}">
+            <br><br>
+
+            <label for="product_name">상품 이름:</label>
+            <br>
+            <input type="text" id="product_name" name="product_name" value="{{ product_name }}">
+            <br><br>
+
+            <label for="product_description">제품 설명:</label>
+            <br>
+            <textarea id="product_description" name="product_description">{{ product_descr }}</textarea>
+            <br><br>
+
+            <label for="product_price">제품 가격:</label>
+            <br>
+            <input type="number" id="product_price" name="product_price" value="{{ product_price }}">
+            <br><br>
+
+            <label for="product_type">제품 사이즈:</label>
+            <br>
+            <br>
+            <select id="product_type" name="product_type">
+                <option value="">-- 선택 --</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+            </select>
+            <br><br>
+            <label for="product_quantity">제품 수량:</label>
+            <br>
+            <input type="number" id="product_quantity" name="product_quantity" value="{{ product_quantity }}">
+            <br><br>
+
+            <br><br>
+
+            <input type="submit" value="제품 추가">
+            <div style="float: left">
+                <a href="/" class="btn btn-secondary">뒤로가기</a>
+            </div>
+        </form>
+    {% endif %}
+{% endblock %}

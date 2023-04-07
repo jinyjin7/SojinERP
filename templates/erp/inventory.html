@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>인벤토리</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>상품코드</th>
+            <th>제품명</th>
+            <th>제품설명</th>
+            <th>제품가격</th>
+            <th>제품사이즈</th>
+            <th>제품수량</th>
+            <th>제품타입</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in product_list %}
+            <tr>
+                <td>{{ product.product_code }}</td>
+                <td>{{ product.product_name }}</td>
+                <td>{{ product.product_description }}</td>
+                <td>{{ product.product_price }}</td>
+                <td>{{ product.product_sizes }}</td>
+                <td>{{ product.product_quantity }}</td>
+                <td>{{ product.product_type }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
