@@ -52,14 +52,14 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="/home/">MUSINSA ERD</a>
+        <a class="navbar-brand" href="/">MUSINSA ERD</a>
         {% if  user.is_authenticated %}
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/accounts/"> 제품 <span class="sr-only"></span></a>
-                        <a class="nav-link" href="/inbound/"> 입고 <span class="sr-only"></span></a>
-                        <a class="nav-link" href="/accounts/"> 출고 <span class="sr-only"></span></a>
+                        <a class="nav-link" href="/inbound/"> 제품등록 <span class="sr-only"></span></a>
+                        <a class="nav-link" href="/product_adding/"> 입고 <span class="sr-only"></span></a>
+                        <a class="nav-link" href="/outbound/"> 출고 <span class="sr-only"></span></a>
                         <a class="nav-link" href="/inventory/"> 인벤토리 <span class="sr-only"></span></a>
                     </li>
                 </ul>
