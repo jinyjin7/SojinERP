@@ -20,6 +20,8 @@ class ProductModel(models.Model):
     product_size = models.CharField(choices=product_sizes, max_length=1)
     product_quantity = models.IntegerField(default=0)
     id = models.AutoField(primary_key=True)
+    input_date = models.DateTimeField(auto_now=True)
+    output_date = models.DateTimeField(auto_now=True)
 
 #제품등록 및 입고
 class Inbound(ProductModel):
@@ -28,7 +30,7 @@ class Inbound(ProductModel):
 
 class Product_adding(ProductModel):
     product_adding_quantity = models.IntegerField()
-    product_adding_date = models.DateTimeField(auto_now_add=True)
+    adding_date = models.DateTimeField(auto_now_add=True)
 
 # 제품출고
 class Outbound(ProductModel):

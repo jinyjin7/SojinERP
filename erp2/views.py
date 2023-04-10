@@ -74,7 +74,6 @@ def outbound(request):
 
         if not outbound_quantity.isdigit():
             return render(request, 'erp/outbound_create.html', {'error': '출고 수량을 숫자로 입력해주세요.'})
-
         else:
             product = ProductModel.objects.get(product_code=product_code, product_size=product_size)
             product.product_quantity -= int(outbound_quantity)
